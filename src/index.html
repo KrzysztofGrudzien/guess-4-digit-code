@@ -10,7 +10,7 @@
             crossorigin="anonymous"
         />
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
         <title>Game Guess 4-Digit Code</title>
     </head>
     <body>
@@ -26,7 +26,7 @@
         <!-- </div> -->
         <header class="header">
             <p class="header__user-name header__user-name--js">
-                Welcom, unknown
+                Welcome, unknown
             </p>
             <div class="score">
                 <div class="score__total score__total--js">total score: 0</div>
@@ -37,62 +37,68 @@
             <a
                 href="https://github.com/KrzysztofGrudzien/guess-4-digit-code"
                 target="_blank"
+                class="header__link"
                 >About game</a
             >
         </header>
         <main class="main">
             <div class="container">
                 <h1 class="main-title main-title--js">Guess 4-digit code</h1>
+                <h2 class="main-title main-title--description">(Between 1 and 20)</h2>
                 <div class="resulting-cards">
                     <div class="card card--col">
                         <span class="card__col">I.</span>
-                        <div class="card__digit">?</div>
-                        <span class="card__padlock">🔒</span>
+                        <div class="card__digit card__digit-first--js">?</div>
+                        <span class="card__padlock card__padlock-first--js">🔒</span>
                     </div>
                     <div class="card card--col">
                         <span class="card__col">II.</span>
-                        <div class="card__digit">?</div>
-                        <span class="card__padlock">🔒</span>
+                        <div class="card__digit card__digit-second--js">?</div>
+                        <span class="card__padlock card__padlock-second--js">🔒</span>
                     </div>
                     <div class="card card--col">
                         <span class="card__col">III.</span>
-                        <div class="card__digit">?</div>
-                        <span class="card__padlock">🔒</span>
+                        <div class="card__digit card__digit-third--js">?</div>
+                        <span class="card__padlock card__padlock-third--js">🔒</span>
                     </div>
                     <div class="card card--col">
                         <span class="card__col">IV.</span>
-                        <div class="card__digit">?</div>
-                        <span class="card__padlock">🔒</span>
+                        <div class="card__digit card__digit-fourth--js">?</div>
+                        <span class="card__padlock card__padlock-fourth--js">🔒</span>
+                    </div>
+                    <div class="card card--col card-new-game--js">
+                        <span class="card__col">V.</span>
+                        <div class="card__digit">🎮</div>
+                        <button class="card__btn card__btn--js">AGAIN</button>
                     </div>
                 </div>
                 <div class="check-number-list">
                     <div class="card card--row">
-                        <span class="card__col">I.</span>
-                        <input class="card__input" type="number" min="1" max="20"></input>
-                        <button class="btn btn-primary">Check!</button>
-                        <span class="card__message"></span>
+                        <span class="card__col card__col--right">&nbsp;&nbsp;I.</span>
+                        <input class="card__input card__input-first--js" type="number" min="1" max="20"></input>
+                        <button class="btn btn-primary btn-first--js">Check!</button>
+                        <span class="card__message card__message-first-digit--js"></span>
                     </div>
                     <div class="card card--row">
-                        <span class="card__col">II.</span>
-                        <input class="card__input" type="number" min="1" max="20"></input>
-                        <button class="btn btn-primary">Check!</button>
-                        <span class="card__message"></span>
+                        <span class="card__col card__col--right">&nbsp;II.</span>
+                        <input class="card__input card__input-second--js" type="number" min="1" max="20"></input>
+                        <button class="btn btn-primary btn-second--js">Check!</button>
+                        <span class="card__message card__message-second-digit--js"></span>
                     </div>
                     <div class="card card--row">
-                        <span class="card__col">III.</span>
-                        <input class="card__input" type="number" min="1" max="20"></input>
-                        <button class="btn btn-primary">Check!</button>
-                        <span class="card__message"></span>
+                        <span class="card__col card__col--right">III.</span>
+                        <input class="card__input card__input-third--js" type="number" min="1" max="20"></input>
+                        <button class="btn btn-primary btn-third--js">Check!</button>
+                        <span class="card__message card__message-third-digit--js"></span>
                     </div>
                     <div class="card card--row">
-                        <span class="card__col">IV.</span>
-                        <input class="card__input" type="number" min="1" max="20"></input>
-                        <button class="btn btn-primary">Check!</button>
-                        <span class="card__message"></span>
+                        <span class="card__col card__col--right">IV.</span>
+                        <input class="card__input card__input-fourth--js" type="number" min="1" max="20"></input>
+                        <button class="btn btn-primary btn-fourth--js">Check!</button>
+                        <span class="card__message card__message-fourth-digit--js"></span>
                     </div>
                 </div>
             </div>
         </main>
-        <footer class="footer">Design and solution - <a href="http://criscode.eu" class="footer__link">Krzysztof Grudzień</a></footer>
     </body>
 </html>

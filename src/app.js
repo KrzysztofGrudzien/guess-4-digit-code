@@ -1,1 +1,1 @@
-console.log('Welcome');
+import './sass/build.scss';

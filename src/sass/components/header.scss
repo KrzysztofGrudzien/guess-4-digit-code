@@ -1,0 +1,43 @@
+.header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    margin: 0 auto;
+    padding: 1rem 0;
+    width: 90%;
+
+    &__user-name {
+        font-weight: 600;
+    }
+
+    &__link:link,
+    &__link:visited {
+        color: $color-first;
+        font-weight: 600;
+        transition: color 0.2s ease-in-out;
+    }
+
+    &__link:hover,
+    &__link:focus,
+    &__link:active {
+        color: $color-sixth;
+        text-decoration: none;
+    }
+}
+
+.score {
+    display: flex;
+
+    &__total,
+    &__highscore {
+        font-size: 2.8rem;
+        font-weight: 300;
+        padding: 0 2rem;
+        text-transform: uppercase;
+    }
+
+    &__total {
+        border-right: 2px solid $color-first;
+    }
+}
