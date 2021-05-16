@@ -21,3 +21,9 @@ const getUserName = () => {
 };
 
 btnLogin.addEventListener('click', getUserName);
+
+userNameValue.addEventListener('keyup', e => {
+    if (e.keyCode === 13) {
+        getUserName();
+    }
+});
