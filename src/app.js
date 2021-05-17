@@ -28,6 +28,13 @@ const mainTitle = document.querySelector('.main-title--js');
 const secondTitle = document.querySelector('.main-title--description--js');
 const totalScore = document.querySelector('.score__total--js');
 const highScore = document.querySelector('.score__highscore--js');
+const cardHidden = document.querySelector('.card-hidden--js');
+const btnNewGame = document.querySelector('.card__btn--js');
+const btnsCheckDigit = document.querySelectorAll('.btn');
+const inputsCard = document.querySelectorAll('.card__input');
+const cardsDigit = document.querySelectorAll('.card__digit');
+const padlocksCard = document.querySelectorAll('.card__padlock');
+const messagesCard = document.querySelectorAll('.card__message');
 
 const game = {
     userName: userNameValue,
@@ -83,6 +90,7 @@ btnCheckFirstDigit.addEventListener('click', function () {
             mainTitle.style.fontWeight = '800';
             mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
             secondTitle.style.display = 'none';
+            cardHidden.classList.remove('hide');
         }
     } else if (parseInt(digitFirstValue.value) < game.randomNumbers[0]) {
         digitFirst.textContent = parseInt(digitFirstValue.value);
@@ -125,6 +133,7 @@ btnCheckSecondDigit.addEventListener('click', () => {
             mainTitle.style.fontWeight = '800';
             mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
             secondTitle.style.display = 'none';
+            cardHidden.classList.remove('hide');
         }
     } else if (parseInt(digitSecondValue.value) < game.randomNumbers[1]) {
         digitSecond.textContent = parseInt(digitSecondValue.value);
@@ -167,6 +176,7 @@ btnCheckThirdDigit.addEventListener('click', () => {
             mainTitle.style.fontWeight = '800';
             mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
             secondTitle.style.display = 'none';
+            cardHidden.classList.remove('hide');
         }
     } else if (parseInt(digitThirdValue.value) < game.randomNumbers[2]) {
         digitThird.textContent = parseInt(digitThirdValue.value);
@@ -209,6 +219,7 @@ btnCheckFourthDigit.addEventListener('click', () => {
             mainTitle.style.fontWeight = '800';
             mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
             secondTitle.style.display = 'none';
+            cardHidden.classList.remove('hide');
         }
     } else if (parseInt(digitFourthValue.value) < game.randomNumbers[3]) {
         digitFourth.textContent = parseInt(digitFourthValue.value);
@@ -228,3 +239,28 @@ btnCheckFourthDigit.addEventListener('click', () => {
         totalScore.textContent = game.totalScore;
     }
 });
+
+btnNewGame.addEventListener('click', () => {
+    game.totalScore = 20;
+    totalScore.textContent = game.totalScore;
+    cardHidden.classList.add('hide');
+    for (let i = 0; i < btnsCheckDigit.length; i++) {
+        btnsCheckDigit[i].style.backgroundColor = '#62bcee';
+        btnsCheckDigit[i].removeAttribute('disabled');
+        inputsCard[i].removeAttribute('disabled');
+        inputsCard[i].value = 1;
+        cardsDigit[i].textContent = '?';
+        cardsDigit[i].style.backgroundColor = '#d7d7d7';
+        mainTitle.style.fontWeight = '600';
+        mainTitle.textContent = 'Guess 4-digit code';
+        secondTitle.style.display = 'block';
+        padlocksCard[i].textContent = '🔐';
+        messagesCard[i].textContent = '';
+        game.randomNumbers = [];
+        for (let i = 0; i < 4; i++) {
+            game.randomNumbers.push(randomNumber());
+        }
+    }
+});
+
+console.log(game.randomNumbers);
