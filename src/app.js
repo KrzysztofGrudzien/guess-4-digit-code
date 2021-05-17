@@ -84,6 +84,7 @@ btnCheckFirstDigit.addEventListener('click', function () {
             game.highScore = game.totalScore;
             highScore.textContent = game.highScore;
         }
+        game.totalScore = 20;
         totalScore.textContent = game.totalScore;
 
         if (randomNumbersSum === checkNumbersSum) {
@@ -127,6 +128,8 @@ btnCheckSecondDigit.addEventListener('click', () => {
             game.highScore = game.totalScore;
             highScore.textContent = game.highScore;
         }
+
+        game.totalScore = 20;
         totalScore.textContent = game.totalScore;
 
         if (randomNumbersSum === checkNumbersSum) {
@@ -170,6 +173,7 @@ btnCheckThirdDigit.addEventListener('click', () => {
             game.highScore = game.totalScore;
             highScore.textContent = game.highScore;
         }
+        game.totalScore = 20;
         totalScore.textContent = game.totalScore;
 
         if (randomNumbersSum === checkNumbersSum) {
@@ -213,6 +217,7 @@ btnCheckFourthDigit.addEventListener('click', () => {
             game.highScore = game.totalScore;
             highScore.textContent = game.highScore;
         }
+        game.totalScore = 20;
         totalScore.textContent = game.totalScore;
 
         if (randomNumbersSum === checkNumbersSum) {
@@ -243,6 +248,8 @@ btnCheckFourthDigit.addEventListener('click', () => {
 btnNewGame.addEventListener('click', () => {
     game.totalScore = 20;
     totalScore.textContent = game.totalScore;
+    game.highScore = 0;
+    highScore.textContent = game.highScore;
     cardHidden.classList.add('hide');
     for (let i = 0; i < btnsCheckDigit.length; i++) {
         btnsCheckDigit[i].style.backgroundColor = '#62bcee';
@@ -262,5 +269,3 @@ btnNewGame.addEventListener('click', () => {
         }
     }
 });
-
-console.log(game.randomNumbers);
