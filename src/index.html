@@ -14,24 +14,24 @@
         <title>Game Guess 4-Digit Code</title>
     </head>
     <body>
-        <!-- <div class="login-panel-overlay-bg login-panel-overlay-bg--js"> -->
-        <!-- <div class="login-panel"> -->
-        <!-- <input -->
-        <!-- type="text" -->
-        <!-- placeholder="Your name or nickname" -->
-        <!-- class="login-panel__input login-panel__input--js" -->
-        <!-- /> -->
-        <!-- <button class="login-panel__btn login-panel__btn--js">let's play 🎮</button> -->
-        <!-- </div> -->
-        <!-- </div> -->
+        <div class="login-panel-overlay-bg login-panel-overlay-bg--js">
+            <div class="login-panel">
+                <input
+                type="text"
+                placeholder="Your name or nickname"
+                class="login-panel__input login-panel__input--js"
+                />
+                <button class="login-panel__btn login-panel__btn--js">let's play 🎮</button>
+            </div>
+        </div>
         <header class="header">
             <p class="header__user-name header__user-name--js">
-                Welcome, unknown
+                
             </p>
             <div class="score">
-                <div class="score__total score__total--js">total score: 0</div>
-                <div class="score__highscore score__highscore--js">
-                    highscore: 0
+                <div class="score__total">total score: <strong class="score__total--js">20</strong></div>
+                <div class="score__highscore">
+                    highscore: <strong class="score__highscore--js">0</strong>
                 </div>
             </div>
             <a
@@ -44,56 +44,58 @@
         <main class="main">
             <div class="container">
                 <h1 class="main-title main-title--js">Guess 4-digit code</h1>
-                <h2 class="main-title main-title--description">(Between 1 and 20)</h2>
-                <div class="resulting-cards">
+                <h2 class="main-title main-title--description main-title--description--js">(Between 1 and 20)</h2>
+                <div class="resulting-cards resulting-cards--js">
                     <div class="card card--col">
                         <span class="card__col">I.</span>
                         <div class="card__digit card__digit-first--js">?</div>
-                        <span class="card__padlock card__padlock-first--js">🔒</span>
+                        <span class="card__padlock card__padlock-first--js">🔐</span>
                     </div>
                     <div class="card card--col">
                         <span class="card__col">II.</span>
                         <div class="card__digit card__digit-second--js">?</div>
-                        <span class="card__padlock card__padlock-second--js">🔒</span>
+                        <span class="card__padlock card__padlock-second--js">🔐</span>
                     </div>
                     <div class="card card--col">
                         <span class="card__col">III.</span>
                         <div class="card__digit card__digit-third--js">?</div>
-                        <span class="card__padlock card__padlock-third--js">🔒</span>
+                        <span class="card__padlock card__padlock-third--js">🔐</span>
                     </div>
                     <div class="card card--col">
                         <span class="card__col">IV.</span>
                         <div class="card__digit card__digit-fourth--js">?</div>
-                        <span class="card__padlock card__padlock-fourth--js">🔒</span>
+                        <span class="card__padlock card__padlock-fourth--js">🔐</span>
                     </div>
-                    <div class="card card--col card-new-game--js">
-                        <span class="card__col">V.</span>
-                        <div class="card__digit">🎮</div>
-                        <button class="card__btn card__btn--js">AGAIN</button>
+                    <div class="card-hidden hide card-hidden--js">
+                        <div class="card card--col card-new-game--js">
+                            <span class="card__col">V.</span>
+                            <div class="card__digit">🎮</div>
+                            <button class="card__btn card__btn--js">AGAIN</button>
+                        </div>
                     </div>
                 </div>
                 <div class="check-number-list">
                     <div class="card card--row">
                         <span class="card__col card__col--right">&nbsp;&nbsp;I.</span>
-                        <input class="card__input card__input-first--js" type="number" min="1" max="20"></input>
+                        <input class="card__input card__input-first--js" type="number" min="1" max="20" value="1"></input>
                         <button class="btn btn-primary btn-first--js">Check!</button>
                         <span class="card__message card__message-first-digit--js"></span>
                     </div>
                     <div class="card card--row">
                         <span class="card__col card__col--right">&nbsp;II.</span>
-                        <input class="card__input card__input-second--js" type="number" min="1" max="20"></input>
+                        <input class="card__input card__input-second--js" type="number" min="1" max="20" value="1"></input>
                         <button class="btn btn-primary btn-second--js">Check!</button>
                         <span class="card__message card__message-second-digit--js"></span>
                     </div>
                     <div class="card card--row">
                         <span class="card__col card__col--right">III.</span>
-                        <input class="card__input card__input-third--js" type="number" min="1" max="20"></input>
+                        <input class="card__input card__input-third--js" type="number" min="1" max="20" value="1"></input>
                         <button class="btn btn-primary btn-third--js">Check!</button>
                         <span class="card__message card__message-third-digit--js"></span>
                     </div>
                     <div class="card card--row">
                         <span class="card__col card__col--right">IV.</span>
-                        <input class="card__input card__input-fourth--js" type="number" min="1" max="20"></input>
+                        <input class="card__input card__input-fourth--js" type="number" min="1" max="20" value="1"></input>
                         <button class="btn btn-primary btn-fourth--js">Check!</button>
                         <span class="card__message card__message-fourth-digit--js"></span>
                     </div>
