@@ -1,4 +1,5 @@
 import './sass/build.scss';
+import confetti from 'canvas-confetti';
 
 const loginPanelBackground = document.querySelector('.login-panel-overlay-bg--js');
 const userNameValue = document.querySelector('.login-panel__input--js');
@@ -67,6 +68,46 @@ for (let i = 0; i < 4; i++) {
     game.randomNumbers.push(randomNumber());
 }
 
+const confettiAnimation = () => {
+    const canvas = document.createElement('canvas');
+    canvas.classList.add('canvas');
+    document.body.appendChild(canvas);
+    const duration = 15 * 300;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 200, zIndex: 0 };
+
+    function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    var interval = setInterval(function () {
+        let timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+            return clearInterval(interval);
+        }
+
+        let particleCount = 50 * (timeLeft / duration);
+
+        confetti(
+            Object.assign({}, defaults, {
+                particleCount,
+                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+            }),
+        );
+        confetti(
+            Object.assign({}, defaults, {
+                particleCount,
+                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+            }),
+        );
+    }, 150);
+
+    setTimeout(() => {
+        canvas.remove();
+    }, 7000);
+};
+
 btnCheckFirstDigit.addEventListener('click', function () {
     if (parseInt(digitFirstValue.value) === game.randomNumbers[0]) {
         digitFirst.textContent = parseInt(digitFirstValue.value);
@@ -92,6 +133,7 @@ btnCheckFirstDigit.addEventListener('click', function () {
             mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
             secondTitle.style.display = 'none';
             cardHidden.classList.remove('hide');
+            confettiAnimation();
         }
     } else if (parseInt(digitFirstValue.value) < game.randomNumbers[0]) {
         digitFirst.textContent = parseInt(digitFirstValue.value);
@@ -137,6 +179,7 @@ btnCheckSecondDigit.addEventListener('click', () => {
             mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
             secondTitle.style.display = 'none';
             cardHidden.classList.remove('hide');
+            confettiAnimation();
         }
     } else if (parseInt(digitSecondValue.value) < game.randomNumbers[1]) {
         digitSecond.textContent = parseInt(digitSecondValue.value);
@@ -181,6 +224,7 @@ btnCheckThirdDigit.addEventListener('click', () => {
             mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
             secondTitle.style.display = 'none';
             cardHidden.classList.remove('hide');
+            confettiAnimation();
         }
     } else if (parseInt(digitThirdValue.value) < game.randomNumbers[2]) {
         digitThird.textContent = parseInt(digitThirdValue.value);
@@ -225,6 +269,7 @@ btnCheckFourthDigit.addEventListener('click', () => {
             mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
             secondTitle.style.display = 'none';
             cardHidden.classList.remove('hide');
+            confettiAnimation();
         }
     } else if (parseInt(digitFourthValue.value) < game.randomNumbers[3]) {
         digitFourth.textContent = parseInt(digitFourthValue.value);
