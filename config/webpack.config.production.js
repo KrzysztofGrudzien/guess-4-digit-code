@@ -101,13 +101,13 @@ module.exports = {
             chunkFilename: '[id].css',
         }),
         new CleanWebpackPlugin(),
-        new CopyPlugin({
-            patterns: [
-                {
-                    from: 'src/assets',
-                    to: 'assets',
-                },
-            ],
-        }),
+        // new CopyPlugin({
+        // patterns: [
+        // {
+        // from: 'src/assets',
+        // to: 'assets',
+        // },
+        // ],
+        // }),
     ],
 };
