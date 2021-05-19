@@ -35,6 +35,6 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "moment": "^2.29.1"
+    "canvas-confetti": "^1.4.0"
   }
 }
