@@ -8,7 +8,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: { build: './src/app.js' },
     output: {
-        path: path.resolve(__dirname, '../', 'build'),
+        path: path.resolve(__dirname, '../', 'dist'),
         filename: 'js/[contenthash:8].[name].min.js',
     },
     module: {
