@@ -9,17 +9,17 @@ A very simple game based on popular game GUESS NUMBER written in pure JS.
 ## Demo version
 Click here  -> [DEMO](https://guess-4-digit-code.netlify.app/)
 
-## Setup on your local machine
+## Setup
 
-  ### Clone project using GIT
+  ### Clone project
   ```bash
   git clone https://github.com/KrzysztofGrudzien/guess-4-digit-code
   ```
-  ### Install project to your computer
+  ### Install project
   ```bash
   npm install
   ```
-  ### Start project in your local computer
+  ### Start project on your local computer
   ```bash
   npm start
   ```
@@ -37,6 +37,9 @@ For fun !!!
 - CSS
 - SASS
 - BEM Methodology
+
+## Design tools
+- Figma
 
 ## Additional libraries
 [canvas confetti](https://www.npmjs.com/package/canvas-confetti)
