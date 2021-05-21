@@ -1,5 +1,6 @@
 import './sass/build.scss';
 import confetti from 'canvas-confetti';
+import randomNumber from './helpers/randomNumber';
 
 const loginPanelBackground = document.querySelector('.login-panel-overlay-bg--js');
 const userNameValue = document.querySelector('.login-panel__input--js');
@@ -61,8 +62,6 @@ userNameValue.addEventListener('keyup', e => {
         getUserName();
     }
 });
-
-const randomNumber = () => Math.trunc(Math.random() * 20 + 1);
 
 for (let i = 0; i < 4; i++) {
     game.randomNumbers.push(randomNumber());
