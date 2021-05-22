@@ -19,6 +19,10 @@
     transform: translate(-50%, -50%);
     width: 50%;
 
+    @media (max-width: 430px) {
+        padding: 5rem 2rem;
+    }
+
     @media (max-width: 850px) {
         border: solid 0.5rem $color-second;
         left: 50%;
@@ -34,6 +38,11 @@
         padding: 1rem;
         outline: none;
         width: 100%;
+
+        @media (max-width: 430px) {
+            font-size: 2rem;
+            padding: 0.5rem;
+        }
     }
 
     &__input::placeholder {
@@ -52,5 +61,10 @@
         padding: 1rem 2rem;
         text-align: center;
         text-transform: uppercase;
+
+        @media (max-width: 430px) {
+            font-size: 2rem;
+            padding: 0.5rem;
+        }
     }
 }
