@@ -1,6 +1,7 @@
 import './sass/build.scss';
 import confettiAnimation from './helpers/confettiAnimation';
 import randomNumber from './helpers/randomNumber';
+import invalidDigitValue from './helpers/invalidDigitValue';
 
 const loginPanelBackground = document.querySelector('.login-panel-overlay-bg--js');
 const userNameValue = document.querySelector('.login-panel__input--js');
@@ -76,6 +77,8 @@ const userWin = () => {
 };
 
 btnCheckFirstDigit.addEventListener('click', () => {
+    invalidDigitValue(parseInt(digitFirstValue.value));
+
     if (parseInt(digitFirstValue.value) === game.randomNumbers[0]) {
         digitFirst.textContent = parseInt(digitFirstValue.value);
         digitFirst.style.backgroundColor = '#57f58d';
@@ -118,6 +121,8 @@ btnCheckFirstDigit.addEventListener('click', () => {
 });
 
 btnCheckSecondDigit.addEventListener('click', () => {
+    invalidDigitValue(parseInt(digitSecondValue.value));
+
     if (parseInt(digitSecondValue.value) === game.randomNumbers[1]) {
         digitSecond.textContent = parseInt(digitSecondValue.value);
         digitSecond.style.backgroundColor = '#57f58d';
@@ -160,6 +165,8 @@ btnCheckSecondDigit.addEventListener('click', () => {
 });
 
 btnCheckThirdDigit.addEventListener('click', () => {
+    invalidDigitValue(parseInt(digitThirdValue.value));
+
     if (parseInt(digitThirdValue.value) === game.randomNumbers[2]) {
         digitThird.textContent = parseInt(digitThirdValue.value);
         digitThird.style.backgroundColor = '#57f58d';
@@ -202,6 +209,8 @@ btnCheckThirdDigit.addEventListener('click', () => {
 });
 
 btnCheckFourthDigit.addEventListener('click', () => {
+    invalidDigitValue(parseInt(digitFourthValue.value));
+
     if (parseInt(digitFourthValue.value) === game.randomNumbers[3]) {
         digitFourth.textContent = parseInt(digitFourthValue.value);
         digitFourth.style.backgroundColor = '#57f58d';
