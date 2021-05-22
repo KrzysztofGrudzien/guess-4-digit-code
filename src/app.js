@@ -82,6 +82,7 @@ btnCheckFirstDigit.addEventListener('click', () => {
     if (parseInt(digitFirstValue.value) === game.randomNumbers[0]) {
         digitFirst.textContent = parseInt(digitFirstValue.value);
         digitFirst.style.backgroundColor = '#57f58d';
+        digitFirstInfo.style.color = '#57f58d';
         digitFirstInfo.textContent = 'Correct number 🎉';
         padlockFirst.textContent = '🔓';
         btnCheckFirstDigit.style.backgroundColor = '#d7d7d7';
@@ -104,7 +105,17 @@ btnCheckFirstDigit.addEventListener('click', () => {
     } else if (parseInt(digitFirstValue.value) < game.randomNumbers[0]) {
         digitFirst.textContent = parseInt(digitFirstValue.value);
         digitFirst.style.backgroundColor = '#f37171';
+        digitFirstInfo.style.color = '#f37171';
         digitFirstInfo.textContent = 'Too Low 📉';
+        padlockFirst.textContent = '🔐';
+        btnCheckFirstDigit.style.backgroundColor = '#62bcee';
+        game.totalScore--;
+        totalScore.textContent = game.totalScore;
+    } else if (digitFirstValue.value === '') {
+        digitFirst.textContent = '?';
+        digitFirst.style.backgroundColor = '#f37171';
+        digitFirstInfo.textContent = 'Is not a number';
+        digitFirstInfo.style.color = '#f37171';
         padlockFirst.textContent = '🔐';
         btnCheckFirstDigit.style.backgroundColor = '#62bcee';
         game.totalScore--;
@@ -112,6 +123,7 @@ btnCheckFirstDigit.addEventListener('click', () => {
     } else {
         digitFirst.textContent = parseInt(digitFirstValue.value);
         digitFirst.style.backgroundColor = '#f37171';
+        digitFirst.style.color = '#23292a';
         digitFirstInfo.textContent = 'Too high 📈';
         padlockFirst.textContent = '🔐';
         btnCheckFirstDigit.style.backgroundColor = '#62bcee';
@@ -126,6 +138,7 @@ btnCheckSecondDigit.addEventListener('click', () => {
     if (parseInt(digitSecondValue.value) === game.randomNumbers[1]) {
         digitSecond.textContent = parseInt(digitSecondValue.value);
         digitSecond.style.backgroundColor = '#57f58d';
+        digitSecondInfo.style.color = '#57f58d';
         digitSecondInfo.textContent = 'Correct number 🎉';
         padlockSecond.textContent = '🔓';
         btnCheckSecondDigit.style.backgroundColor = '#d7d7d7';
@@ -148,7 +161,17 @@ btnCheckSecondDigit.addEventListener('click', () => {
     } else if (parseInt(digitSecondValue.value) < game.randomNumbers[1]) {
         digitSecond.textContent = parseInt(digitSecondValue.value);
         digitSecond.style.backgroundColor = '#f37171';
+        digitSecondInfo.style.color = '#f37171';
         digitSecondInfo.textContent = 'Too Low 📉';
+        padlockSecond.textContent = '🔐';
+        btnCheckSecondDigit.style.backgroundColor = '#62bcee';
+        game.totalScore--;
+        totalScore.textContent = game.totalScore;
+    } else if (digitSecondValue.value === '') {
+        digitSecond.textContent = '?';
+        digitSecond.style.backgroundColor = '#f37171';
+        digitSecondInfo.textContent = 'Is not a number';
+        digitSecondInfo.style.color = '#f37171';
         padlockSecond.textContent = '🔐';
         btnCheckSecondDigit.style.backgroundColor = '#62bcee';
         game.totalScore--;
@@ -156,6 +179,8 @@ btnCheckSecondDigit.addEventListener('click', () => {
     } else {
         digitSecond.textContent = parseInt(digitSecondValue.value);
         digitSecond.style.backgroundColor = '#f37171';
+        digitSecond.style.color = '#23292a';
+        digitSecondInfo.style.color = '#f37171';
         digitSecondInfo.textContent = 'Too high 📈';
         padlockSecond.textContent = '🔐';
         btnCheckSecondDigit.style.backgroundColor = '#62bcee';
@@ -170,6 +195,7 @@ btnCheckThirdDigit.addEventListener('click', () => {
     if (parseInt(digitThirdValue.value) === game.randomNumbers[2]) {
         digitThird.textContent = parseInt(digitThirdValue.value);
         digitThird.style.backgroundColor = '#57f58d';
+        digitThirdInfo.style.color = '#57f58d';
         digitThirdInfo.textContent = 'Correct number 🎉';
         padlockThird.textContent = '🔓';
         btnCheckThirdDigit.style.backgroundColor = '#d7d7d7';
@@ -193,6 +219,16 @@ btnCheckThirdDigit.addEventListener('click', () => {
         digitThird.textContent = parseInt(digitThirdValue.value);
         digitThird.style.backgroundColor = '#f37171';
         digitThirdInfo.textContent = 'Too Low 📉';
+        digitThirdInfo.style.color = '#f37171';
+        padlockThird.textContent = '🔐';
+        btnCheckThirdDigit.style.backgroundColor = '#62bcee';
+        game.totalScore--;
+        totalScore.textContent = game.totalScore;
+    } else if (digitThirdValue.value === '') {
+        digitThird.textContent = '?';
+        digitThird.style.backgroundColor = '#f37171';
+        digitThirdInfo.textContent = 'Is not a number';
+        digitThirdInfo.style.color = '#f37171';
         padlockThird.textContent = '🔐';
         btnCheckThirdDigit.style.backgroundColor = '#62bcee';
         game.totalScore--;
@@ -200,6 +236,8 @@ btnCheckThirdDigit.addEventListener('click', () => {
     } else {
         digitThird.textContent = parseInt(digitThirdValue.value);
         digitThird.style.backgroundColor = '#f37171';
+        digitThirdInfo.style.color = '#f37171';
+        digitThird.style.color = '#23292a';
         digitThirdInfo.textContent = 'Too high 📈';
         padlockThird.textContent = '🔐';
         btnCheckThirdDigit.style.backgroundColor = '#62bcee';
@@ -215,6 +253,7 @@ btnCheckFourthDigit.addEventListener('click', () => {
         digitFourth.textContent = parseInt(digitFourthValue.value);
         digitFourth.style.backgroundColor = '#57f58d';
         digitFourthInfo.textContent = 'Correct number 🎉';
+        digitFourthInfo.style.color = '#57f58d';
         padlockFourth.textContent = '🔓';
         btnCheckFourthDigit.style.backgroundColor = '#d7d7d7';
         digitFourthValue.setAttribute('disabled', true);
@@ -236,7 +275,17 @@ btnCheckFourthDigit.addEventListener('click', () => {
     } else if (parseInt(digitFourthValue.value) < game.randomNumbers[3]) {
         digitFourth.textContent = parseInt(digitFourthValue.value);
         digitFourth.style.backgroundColor = '#f37171';
+        digitFourthInfo.style.color = '#f37171';
         digitFourthInfo.textContent = 'Too Low 📉';
+        padlockFourth.textContent = '🔐';
+        btnCheckFourthDigit.style.backgroundColor = '#62bcee';
+        game.totalScore--;
+        totalScore.textContent = game.totalScore;
+    } else if (digitFourthValue.value === '') {
+        digitFourth.textContent = '?';
+        digitFourth.style.backgroundColor = '#f37171';
+        digitFourthInfo.textContent = 'Is not a number';
+        digitFourthInfo.style.color = '#f37171';
         padlockFourth.textContent = '🔐';
         btnCheckFourthDigit.style.backgroundColor = '#62bcee';
         game.totalScore--;
@@ -244,6 +293,8 @@ btnCheckFourthDigit.addEventListener('click', () => {
     } else {
         digitFourth.textContent = parseInt(digitFourthValue.value);
         digitFourth.style.backgroundColor = '#f37171';
+        digitFourth.style.color = '#23292a';
+        digitFourthInfo.style.color = '#f37171';
         digitFourthInfo.textContent = 'Too high 📈';
         padlockFourth.textContent = '🔐';
         btnCheckFourthDigit.style.backgroundColor = '#62bcee';
