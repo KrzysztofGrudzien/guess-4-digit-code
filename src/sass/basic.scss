@@ -16,4 +16,8 @@ body {
     font-size: 1.6rem;
     min-height: 100vh;
     position: relative;
+
+    @media (max-width: 850px) {
+        font-size: 1.4rem;
+    }
 }

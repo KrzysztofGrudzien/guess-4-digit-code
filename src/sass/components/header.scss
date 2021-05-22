@@ -7,8 +7,22 @@
     padding: 1rem 0;
     width: 90%;
 
+    @media (max-width: 850px) {
+        flex-direction: column;
+    }
+
     &__user-name {
         font-weight: 600;
+
+        @media (max-width: 850px) {
+            padding-bottom: 1.5rem;
+        }
+    }
+
+    a {
+        @media (max-width: 850px) {
+            padding-top: 1rem;
+        }
     }
 
     &__link:link,
@@ -35,6 +49,10 @@
         font-weight: 300;
         padding: 0 2rem;
         text-transform: uppercase;
+
+        @media (max-width: 850px) {
+            text-align: center;
+        }
     }
 
     &__total {
