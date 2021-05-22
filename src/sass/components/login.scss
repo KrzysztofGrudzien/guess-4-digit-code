@@ -20,7 +20,9 @@
     width: 50%;
 
     @media (max-width: 850px) {
-        width: 100%;
+        border: solid 0.5rem $color-second;
+        left: 50%;
+        width: 95%;
     }
 
     &__input {
