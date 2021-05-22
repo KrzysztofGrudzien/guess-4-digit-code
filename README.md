@@ -45,7 +45,7 @@ For fun !!!
 [canvas confetti](https://www.npmjs.com/package/canvas-confetti)
 
 ## Project status 
-In progress
+Done 🎉
 
 ## Rules
 1. Try to find out what number is hidden in the single input.
