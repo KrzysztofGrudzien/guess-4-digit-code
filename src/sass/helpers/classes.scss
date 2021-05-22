@@ -1,3 +1,10 @@
 .hide {
     display: none;
 }
+
+.error-message {
+    background-color: $color-fifth;
+    color: $color-second;
+    font-weight: 400;
+    padding: 1rem;
+}
