@@ -69,7 +69,7 @@ for (let i = 0; i < 4; i++) {
 
 const userWin = () => {
     mainTitle.style.fontWeight = '800';
-    mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
+    mainTitle.textContent = 'YOU WIN 🏆🏆🏆🏆🏆';
     secondTitle.style.display = 'none';
     cardHidden.classList.remove('hide');
     confettiAnimation();
