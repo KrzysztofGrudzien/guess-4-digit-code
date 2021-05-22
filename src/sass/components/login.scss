@@ -19,6 +19,12 @@
     transform: translate(-50%, -50%);
     width: 50%;
 
+    @media (max-width: 850px) {
+        border: solid 0.5rem $color-second;
+        left: 50%;
+        width: 95%;
+    }
+
     &__input {
         border: none;
         border-bottom: 2px solid $color-second;
