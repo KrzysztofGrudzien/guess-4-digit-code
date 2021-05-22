@@ -1,5 +1,5 @@
 import './sass/build.scss';
-import confetti from 'canvas-confetti';
+import confettiAnimation from './helpers/confettiAnimation';
 import randomNumber from './helpers/randomNumber';
 
 const loginPanelBackground = document.querySelector('.login-panel-overlay-bg--js');
@@ -67,47 +67,15 @@ for (let i = 0; i < 4; i++) {
     game.randomNumbers.push(randomNumber());
 }
 
-const confettiAnimation = () => {
-    const canvas = document.createElement('canvas');
-    canvas.classList.add('canvas');
-    document.body.appendChild(canvas);
-    const duration = 15 * 300;
-    const animationEnd = Date.now() + duration;
-    const defaults = { startVelocity: 30, spread: 360, ticks: 200, zIndex: 0 };
-
-    function randomInRange(min, max) {
-        return Math.random() * (max - min) + min;
-    }
-
-    var interval = setInterval(function () {
-        let timeLeft = animationEnd - Date.now();
-
-        if (timeLeft <= 0) {
-            return clearInterval(interval);
-        }
-
-        let particleCount = 50 * (timeLeft / duration);
-
-        confetti(
-            Object.assign({}, defaults, {
-                particleCount,
-                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-            }),
-        );
-        confetti(
-            Object.assign({}, defaults, {
-                particleCount,
-                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-            }),
-        );
-    }, 150);
-
-    setTimeout(() => {
-        canvas.remove();
-    }, 7000);
+const userWin = () => {
+    mainTitle.style.fontWeight = '800';
+    mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
+    secondTitle.style.display = 'none';
+    cardHidden.classList.remove('hide');
+    confettiAnimation();
 };
 
-btnCheckFirstDigit.addEventListener('click', function () {
+btnCheckFirstDigit.addEventListener('click', () => {
     if (parseInt(digitFirstValue.value) === game.randomNumbers[0]) {
         digitFirst.textContent = parseInt(digitFirstValue.value);
         digitFirst.style.backgroundColor = '#57f58d';
@@ -117,6 +85,7 @@ btnCheckFirstDigit.addEventListener('click', function () {
         digitFirstValue.setAttribute('disabled', true);
         btnCheckFirstDigit.setAttribute('disabled', true);
         game.checkNumbers[0] = parseInt(digitFirstValue.value);
+
         const randomNumbersSum = game.randomNumbers.reduce((acc, digit) => acc + digit);
         const checkNumbersSum = game.checkNumbers.reduce((acc, digit) => acc + digit);
 
@@ -124,16 +93,11 @@ btnCheckFirstDigit.addEventListener('click', function () {
             game.highScore = game.totalScore;
             highScore.textContent = game.highScore;
         }
+
         game.totalScore = 20;
         totalScore.textContent = game.totalScore;
 
-        if (randomNumbersSum === checkNumbersSum) {
-            mainTitle.style.fontWeight = '800';
-            mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
-            secondTitle.style.display = 'none';
-            cardHidden.classList.remove('hide');
-            confettiAnimation();
-        }
+        if (randomNumbersSum === checkNumbersSum) userWin();
     } else if (parseInt(digitFirstValue.value) < game.randomNumbers[0]) {
         digitFirst.textContent = parseInt(digitFirstValue.value);
         digitFirst.style.backgroundColor = '#f37171';
@@ -163,8 +127,10 @@ btnCheckSecondDigit.addEventListener('click', () => {
         digitSecondValue.setAttribute('disabled', true);
         btnCheckSecondDigit.setAttribute('disabled', true);
         game.checkNumbers[1] = parseInt(digitSecondValue.value);
+
         const randomNumbersSum = game.randomNumbers.reduce((acc, digit) => acc + digit);
         const checkNumbersSum = game.checkNumbers.reduce((acc, digit) => acc + digit);
+
         if (game.totalScore > game.highScore) {
             game.highScore = game.totalScore;
             highScore.textContent = game.highScore;
@@ -173,13 +139,7 @@ btnCheckSecondDigit.addEventListener('click', () => {
         game.totalScore = 20;
         totalScore.textContent = game.totalScore;
 
-        if (randomNumbersSum === checkNumbersSum) {
-            mainTitle.style.fontWeight = '800';
-            mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
-            secondTitle.style.display = 'none';
-            cardHidden.classList.remove('hide');
-            confettiAnimation();
-        }
+        if (randomNumbersSum === checkNumbersSum) userWin();
     } else if (parseInt(digitSecondValue.value) < game.randomNumbers[1]) {
         digitSecond.textContent = parseInt(digitSecondValue.value);
         digitSecond.style.backgroundColor = '#f37171';
@@ -209,22 +169,19 @@ btnCheckThirdDigit.addEventListener('click', () => {
         digitThirdValue.setAttribute('disabled', true);
         btnCheckThirdDigit.setAttribute('disabled', true);
         game.checkNumbers[2] = parseInt(digitThirdValue.value);
+
         const randomNumbersSum = game.randomNumbers.reduce((acc, digit) => acc + digit);
         const checkNumbersSum = game.checkNumbers.reduce((acc, digit) => acc + digit);
+
         if (game.totalScore > game.highScore) {
             game.highScore = game.totalScore;
             highScore.textContent = game.highScore;
         }
+
         game.totalScore = 20;
         totalScore.textContent = game.totalScore;
 
-        if (randomNumbersSum === checkNumbersSum) {
-            mainTitle.style.fontWeight = '800';
-            mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
-            secondTitle.style.display = 'none';
-            cardHidden.classList.remove('hide');
-            confettiAnimation();
-        }
+        if (randomNumbersSum === checkNumbersSum) userWin();
     } else if (parseInt(digitThirdValue.value) < game.randomNumbers[2]) {
         digitThird.textContent = parseInt(digitThirdValue.value);
         digitThird.style.backgroundColor = '#f37171';
@@ -254,22 +211,19 @@ btnCheckFourthDigit.addEventListener('click', () => {
         digitFourthValue.setAttribute('disabled', true);
         btnCheckFourthDigit.setAttribute('disabled', true);
         game.checkNumbers[3] = parseInt(digitFourthValue.value);
+
         const randomNumbersSum = game.randomNumbers.reduce((acc, digit) => acc + digit);
         const checkNumbersSum = game.checkNumbers.reduce((acc, digit) => acc + digit);
+
         if (game.totalScore > game.highScore) {
             game.highScore = game.totalScore;
             highScore.textContent = game.highScore;
         }
+
         game.totalScore = 20;
         totalScore.textContent = game.totalScore;
 
-        if (randomNumbersSum === checkNumbersSum) {
-            mainTitle.style.fontWeight = '800';
-            mainTitle.textContent = 'YOU WIN 🏆🏆🏆';
-            secondTitle.style.display = 'none';
-            cardHidden.classList.remove('hide');
-            confettiAnimation();
-        }
+        if (randomNumbersSum === checkNumbersSum) userWin();
     } else if (parseInt(digitFourthValue.value) < game.randomNumbers[3]) {
         digitFourth.textContent = parseInt(digitFourthValue.value);
         digitFourth.style.backgroundColor = '#f37171';
@@ -295,6 +249,7 @@ btnNewGame.addEventListener('click', () => {
     game.highScore = 0;
     highScore.textContent = game.highScore;
     cardHidden.classList.add('hide');
+
     for (let i = 0; i < btnsCheckDigit.length; i++) {
         btnsCheckDigit[i].style.backgroundColor = '#62bcee';
         btnsCheckDigit[i].removeAttribute('disabled');
@@ -308,6 +263,7 @@ btnNewGame.addEventListener('click', () => {
         padlocksCard[i].textContent = '🔐';
         messagesCard[i].textContent = '';
         game.randomNumbers = [];
+
         for (let i = 0; i < 4; i++) {
             game.randomNumbers.push(randomNumber());
         }
