@@ -33,6 +33,7 @@ const totalScore = document.querySelector('.score__total--js');
 const highScore = document.querySelector('.score__highscore--js');
 const cardHidden = document.querySelector('.card-hidden--js');
 const btnNewGame = document.querySelector('.card__btn--js');
+const overlayBox = document.querySelector('.check-number-list__overlay--js');
 const btnsCheckDigit = document.querySelectorAll('.btn');
 const inputsCard = document.querySelectorAll('.card__input');
 const cardsDigit = document.querySelectorAll('.card__digit');
@@ -76,8 +77,17 @@ const userWin = () => {
     confettiAnimation();
 };
 
+const userLoose = () => {
+    overlayBox.classList.remove('hide');
+    totalScore.textContent = '0';
+    mainTitle.textContent = 'YOU LOOSE 😭😭😭';
+    secondTitle.style.display = 'none';
+    cardHidden.classList.remove('hide');
+};
+
 btnCheckFirstDigit.addEventListener('click', () => {
     invalidDigitValue(parseInt(digitFirstValue.value));
+    if (game.totalScore <= 1) userLoose();
 
     if (parseInt(digitFirstValue.value) === game.randomNumbers[0]) {
         digitFirst.textContent = parseInt(digitFirstValue.value);
@@ -100,7 +110,6 @@ btnCheckFirstDigit.addEventListener('click', () => {
 
         game.totalScore = 20;
         totalScore.textContent = game.totalScore;
-
         if (randomNumbersSum === checkNumbersSum) userWin();
     } else if (parseInt(digitFirstValue.value) < game.randomNumbers[0]) {
         digitFirst.textContent = parseInt(digitFirstValue.value);
@@ -134,6 +143,7 @@ btnCheckFirstDigit.addEventListener('click', () => {
 
 btnCheckSecondDigit.addEventListener('click', () => {
     invalidDigitValue(parseInt(digitSecondValue.value));
+    if (game.totalScore <= 1) userLoose();
 
     if (parseInt(digitSecondValue.value) === game.randomNumbers[1]) {
         digitSecond.textContent = parseInt(digitSecondValue.value);
@@ -156,7 +166,6 @@ btnCheckSecondDigit.addEventListener('click', () => {
 
         game.totalScore = 20;
         totalScore.textContent = game.totalScore;
-
         if (randomNumbersSum === checkNumbersSum) userWin();
     } else if (parseInt(digitSecondValue.value) < game.randomNumbers[1]) {
         digitSecond.textContent = parseInt(digitSecondValue.value);
@@ -191,6 +200,7 @@ btnCheckSecondDigit.addEventListener('click', () => {
 
 btnCheckThirdDigit.addEventListener('click', () => {
     invalidDigitValue(parseInt(digitThirdValue.value));
+    if (game.totalScore <= 1) userLoose();
 
     if (parseInt(digitThirdValue.value) === game.randomNumbers[2]) {
         digitThird.textContent = parseInt(digitThirdValue.value);
@@ -213,7 +223,6 @@ btnCheckThirdDigit.addEventListener('click', () => {
 
         game.totalScore = 20;
         totalScore.textContent = game.totalScore;
-
         if (randomNumbersSum === checkNumbersSum) userWin();
     } else if (parseInt(digitThirdValue.value) < game.randomNumbers[2]) {
         digitThird.textContent = parseInt(digitThirdValue.value);
@@ -248,6 +257,7 @@ btnCheckThirdDigit.addEventListener('click', () => {
 
 btnCheckFourthDigit.addEventListener('click', () => {
     invalidDigitValue(parseInt(digitFourthValue.value));
+    if (game.totalScore <= 1) userLoose();
 
     if (parseInt(digitFourthValue.value) === game.randomNumbers[3]) {
         digitFourth.textContent = parseInt(digitFourthValue.value);
@@ -270,7 +280,6 @@ btnCheckFourthDigit.addEventListener('click', () => {
 
         game.totalScore = 20;
         totalScore.textContent = game.totalScore;
-
         if (randomNumbersSum === checkNumbersSum) userWin();
     } else if (parseInt(digitFourthValue.value) < game.randomNumbers[3]) {
         digitFourth.textContent = parseInt(digitFourthValue.value);
@@ -309,6 +318,7 @@ btnNewGame.addEventListener('click', () => {
     game.highScore = 0;
     highScore.textContent = game.highScore;
     cardHidden.classList.add('hide');
+    overlayBox.classList.add('hide');
 
     for (let i = 0; i < btnsCheckDigit.length; i++) {
         btnsCheckDigit[i].style.backgroundColor = '#62bcee';
